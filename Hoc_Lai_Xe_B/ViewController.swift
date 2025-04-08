@@ -24,6 +24,10 @@ class ViewController: UIViewController, WKNavigationDelegate {
     var clickIndicator: UIView!
     var arrayPoints: [PointObject] = [PointObject(x: 150, y: 150), PointObject(x: 150, y: 200), PointObject(x: 250, y: 0), PointObject(x: 150, y: 300), PointObject(x: 150, y: 350)]
     var timerNext: Timer?
+    var timerPrevious: Timer?
+    var isNext: Bool = true
+    var countSelect: Int = 0
+    var countDefaut: Int = 3
     
     
     @Published var isSelect: Bool = false
@@ -75,9 +79,15 @@ class ViewController: UIViewController, WKNavigationDelegate {
     }
     
     func startAutoClicking() {
+        stopAutoClicking()
         selectBT.backgroundColor = UIColor.green
         timerPoint = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(autoClick), userInfo: nil, repeats: true)
-        timerNext = Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(autoNext), userInfo: nil, repeats: true)
+        
+        if isNext {
+            timerNext = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(autoNext), userInfo: nil, repeats: true)
+        } else {
+            timerPrevious = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(autoPrevious), userInfo: nil, repeats: true)
+        }
     }
     
     @objc func autoClick() {
@@ -87,11 +97,32 @@ class ViewController: UIViewController, WKNavigationDelegate {
     }
     
     @objc func autoNext() {
-        nextAction()
+        nextAction(x: 340)
+        countSelect += 1
+        if countSelect == countDefaut {
+            isSelect.toggle()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+                self.countSelect = self.countDefaut
+                self.isNext = false
+                self.isSelect.toggle()
+            })
+        }
+    }
+    
+    @objc func autoPrevious() {
+        nextAction(x: 25)
+        countSelect -= 1
+        if countSelect == 0 {
+            isSelect.toggle()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+                self.countSelect = 0
+                self.isNext = true
+                self.isSelect.toggle()
+            })
+        }
     }
     
     func numberPointSelect(x: Int, y: Int) {
-        clickIndicator.center = CGPoint(x: x, y: y)
         
         let js = "var evt = new MouseEvent('click', {clientX: \(x), clientY: \(y), bubbles: true}); document.elementFromPoint(\(x), \(y)).dispatchEvent(evt);"
         
@@ -104,8 +135,8 @@ class ViewController: UIViewController, WKNavigationDelegate {
         }
     }
     
-    func nextAction() {
-        var x = 340
+    func nextAction(x: Int) {
+//        var x = 340
         var y = 640
         
         clickIndicator.center = CGPoint(x: x, y: y)
@@ -116,7 +147,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
             if let error = error {
                 print("a4....Error executing JavaScript: \(error)")
             } else {
-                print("a4....Click simulated successfully.")
+                print("a4....Click simulated successfully........x is:\(x).......countSelect is:\(self.countSelect)......")
             }
         }
     }
@@ -125,6 +156,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         // Invalidate timer when the view controller is deallocated
         timerPoint?.invalidate()
         timerNext?.invalidate()
+        timerPrevious?.invalidate()
     }
     
     func stopAutoClicking() {
@@ -134,6 +166,9 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         timerNext?.invalidate()
         timerNext = nil
+        
+        timerPrevious?.invalidate()
+        timerPrevious = nil
         
        }
 }

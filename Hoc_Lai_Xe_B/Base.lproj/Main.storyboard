@@ -25,7 +25,7 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcN-ZB-oFw">
+                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcN-ZB-oFw">
                                 <rect key="frame" x="159" y="139" width="75" height="35"/>
                                 <color key="backgroundColor" red="0.20000001789999999" green="0.45098042490000001" blue="0.92156863209999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -33,7 +33,7 @@
                                     <constraint firstAttribute="height" constant="35" id="lWU-Do-hU8"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Auto"/>
                                 <connections>
                                     <action selector="btAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oC1-3t-dLX"/>
                                 </connections>
