@@ -9,14 +9,21 @@ import UIKit
 import WebKit
 import Combine
 
+struct PointObject {
+    var x: Int = 0
+    var y: Int = 0
+}
+
 class ViewController: UIViewController, WKNavigationDelegate {
     
     @IBOutlet weak var webView1: WKWebView!
     @IBOutlet weak var selectBT: UIButton!
     //    var webView: WKWebView!
     
-    var timer: Timer?
+    var timerPoint: Timer?
     var clickIndicator: UIView!
+    var arrayPoints: [PointObject] = [PointObject(x: 150, y: 150), PointObject(x: 150, y: 200), PointObject(x: 250, y: 0), PointObject(x: 150, y: 300), PointObject(x: 150, y: 350)]
+    var timerNext: Timer?
     
     
     @Published var isSelect: Bool = false
@@ -69,10 +76,35 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     func startAutoClicking() {
         selectBT.backgroundColor = UIColor.green
-        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(autoClick), userInfo: nil, repeats: true)
+        timerPoint = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(autoClick), userInfo: nil, repeats: true)
+        timerNext = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(autoNext), userInfo: nil, repeats: true)
     }
     
     @objc func autoClick() {
+        for item in arrayPoints {
+            numberPointSelect(x: item.x, y: item.y)
+        }
+    }
+    
+    @objc func autoNext() {
+        nextAction()
+    }
+    
+    func numberPointSelect(x: Int, y: Int) {
+        clickIndicator.center = CGPoint(x: x, y: y)
+        
+        let js = "var evt = new MouseEvent('click', {clientX: \(x), clientY: \(y), bubbles: true}); document.elementFromPoint(\(x), \(y)).dispatchEvent(evt);"
+        
+        webView1.evaluateJavaScript(js) { (result, error) in
+            if let error = error {
+                print("a3....Error number PointSelect: \(error)")
+            } else {
+                print("a3....number PointSelect Click.")
+            }
+        }
+    }
+    
+    func nextAction() {
         var x = 340
         var y = 640
         
@@ -82,22 +114,27 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         webView1.evaluateJavaScript(js) { (result, error) in
             if let error = error {
-                print("a3....Error executing JavaScript: \(error)")
+                print("a4....Error executing JavaScript: \(error)")
             } else {
-                print("a3....Click simulated successfully.")
+                print("a4....Click simulated successfully.")
             }
         }
     }
     
     deinit {
         // Invalidate timer when the view controller is deallocated
-        timer?.invalidate()
+        timerPoint?.invalidate()
+        timerNext?.invalidate()
     }
     
     func stopAutoClicking() {
         selectBT.backgroundColor = UIColor.red
-           timer?.invalidate()
-           timer = nil // Clear the timer
+        timerPoint?.invalidate()
+        timerPoint = nil // Clear the timer
+        
+        timerNext?.invalidate()
+        timerNext = nil
+        
        }
 }
 

@@ -26,7 +26,7 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcN-ZB-oFw">
-                                <rect key="frame" x="159" y="59" width="75" height="35"/>
+                                <rect key="frame" x="159" y="139" width="75" height="35"/>
                                 <color key="backgroundColor" red="0.20000001789999999" green="0.45098042490000001" blue="0.92156863209999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="74u-aj-nyY"/>
@@ -46,7 +46,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4WX-Rm-7zb" secondAttribute="bottom" id="RtG-f4-XUX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4WX-Rm-7zb" secondAttribute="trailing" id="SG4-bj-Grt"/>
                             <constraint firstItem="zcN-ZB-oFw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TtL-A3-FTr"/>
-                            <constraint firstItem="zcN-ZB-oFw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="deY-Ft-2Sq"/>
+                            <constraint firstItem="zcN-ZB-oFw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="deY-Ft-2Sq"/>
                             <constraint firstItem="4WX-Rm-7zb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eIG-t4-MiW"/>
                         </constraints>
                     </view>
