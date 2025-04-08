@@ -16,9 +16,44 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4WX-Rm-7zb">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcN-ZB-oFw">
+                                <rect key="frame" x="159" y="59" width="75" height="35"/>
+                                <color key="backgroundColor" red="0.20000001789999999" green="0.45098042490000001" blue="0.92156863209999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="74u-aj-nyY"/>
+                                    <constraint firstAttribute="height" constant="35" id="lWU-Do-hU8"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="btAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oC1-3t-dLX"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="4WX-Rm-7zb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5gA-BJ-6OT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4WX-Rm-7zb" secondAttribute="bottom" id="RtG-f4-XUX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4WX-Rm-7zb" secondAttribute="trailing" id="SG4-bj-Grt"/>
+                            <constraint firstItem="zcN-ZB-oFw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TtL-A3-FTr"/>
+                            <constraint firstItem="zcN-ZB-oFw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="deY-Ft-2Sq"/>
+                            <constraint firstItem="4WX-Rm-7zb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eIG-t4-MiW"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="selectBT" destination="zcN-ZB-oFw" id="6Cy-8U-107"/>
+                        <outlet property="webView1" destination="4WX-Rm-7zb" id="LzG-DW-9AT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
