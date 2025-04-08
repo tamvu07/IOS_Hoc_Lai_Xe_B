@@ -77,7 +77,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
     func startAutoClicking() {
         selectBT.backgroundColor = UIColor.green
         timerPoint = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(autoClick), userInfo: nil, repeats: true)
-        timerNext = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(autoNext), userInfo: nil, repeats: true)
+        timerNext = Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(autoNext), userInfo: nil, repeats: true)
     }
     
     @objc func autoClick() {
