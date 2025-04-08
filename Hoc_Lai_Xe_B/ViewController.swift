@@ -99,9 +99,9 @@ class ViewController: UIViewController, WKNavigationDelegate {
         timerPoint = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(autoClick), userInfo: nil, repeats: true)
         
         if isNext {
-            timerNext = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(autoNext), userInfo: nil, repeats: true)
+            timerNext = Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(autoNext), userInfo: nil, repeats: true)
         } else {
-            timerPrevious = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(autoPrevious), userInfo: nil, repeats: true)
+            timerPrevious = Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(autoPrevious), userInfo: nil, repeats: true)
         }
     }
     
