@@ -18,6 +18,8 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     @IBOutlet weak var webView1: WKWebView!
     @IBOutlet weak var selectBT: UIButton!
+    @IBOutlet weak var contentMainView: UIView!
+    @IBOutlet weak var textNumberTF: UITextField!
     //    var webView: WKWebView!
     
     var timerPoint: Timer?
@@ -27,7 +29,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
     var timerPrevious: Timer?
     var isNext: Bool = true
     var countSelect: Int = 0
-    var countDefaut: Int = 3
+    var countDefaut: Int = 100
     
     
     @Published var isSelect: Bool = false
@@ -41,6 +43,8 @@ class ViewController: UIViewController, WKNavigationDelegate {
         //        webView = WKWebView(frame: self.view.frame)
         webView1.navigationDelegate = self
         //        self.view.addSubview(webView)
+        
+        contentMainView.isHidden = true
         
         createClickIndicator()
         
@@ -59,12 +63,23 @@ class ViewController: UIViewController, WKNavigationDelegate {
                 }
             })
             .store(in: &subscriptions)
+        
+        showBtn()
     }
     
     @IBAction func btAction(_ sender: Any) {
         isSelect.toggle()
     }
     
+    @IBAction func hiddenAction(_ sender: Any) {
+        contentMainView.isHidden = true
+    }
+    
+    @IBAction func doneAction(_ sender: Any) {
+        guard let value = Int(textNumberTF.text ?? "0") else { return }
+        countDefaut = value
+        textNumberTF.resignFirstResponder()
+    }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         // Start the timer to click the element every 2 seconds
@@ -171,5 +186,22 @@ class ViewController: UIViewController, WKNavigationDelegate {
         timerPrevious = nil
         
        }
+    
+     func showBtn() {
+            DispatchQueue.main.async {
+                let assistiveTouch = AssistiveTouch(frame: CGRect(x: self.view.bounds.width - 66, y: 180, width: 56, height: 56))
+                assistiveTouch.addTarget(self, action: #selector(self.goToView(sender:)), for: .touchUpInside)
+                assistiveTouch.setImage(UIImage(named: "ic_smartwatch_temp"), for: .normal)
+                assistiveTouch.slectedAction = {
+                    
+                }
+                assistiveTouch.tag = 69240
+                self.view.addSubview(assistiveTouch)
+            }
+        }
+    
+    @objc func goToView(sender: UIButton) {
+        contentMainView.isHidden = false
+    }
 }
 

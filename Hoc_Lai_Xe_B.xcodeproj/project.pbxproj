@@ -16,6 +16,7 @@
 		E8C3B23E2DA4C7220090687B /* Hoc_Lai_Xe_BTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C3B23D2DA4C7220090687B /* Hoc_Lai_Xe_BTests.swift */; };
 		E8C3B2482DA4C7220090687B /* Hoc_Lai_Xe_BUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C3B2472DA4C7220090687B /* Hoc_Lai_Xe_BUITests.swift */; };
 		E8C3B24A2DA4C7220090687B /* Hoc_Lai_Xe_BUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C3B2492DA4C7220090687B /* Hoc_Lai_Xe_BUITestsLaunchTests.swift */; };
+		E8C3B2572DA518F80090687B /* AssistiveTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C3B2562DA518F80090687B /* AssistiveTouch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		E8C3B2432DA4C7220090687B /* Hoc_Lai_Xe_BUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Hoc_Lai_Xe_BUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8C3B2472DA4C7220090687B /* Hoc_Lai_Xe_BUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hoc_Lai_Xe_BUITests.swift; sourceTree = "<group>"; };
 		E8C3B2492DA4C7220090687B /* Hoc_Lai_Xe_BUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hoc_Lai_Xe_BUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E8C3B2562DA518F80090687B /* AssistiveTouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistiveTouch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				E8C3B2262DA4C7200090687B /* AppDelegate.swift */,
 				E8C3B2282DA4C7200090687B /* SceneDelegate.swift */,
 				E8C3B22A2DA4C7200090687B /* ViewController.swift */,
+				E8C3B2562DA518F80090687B /* AssistiveTouch.swift */,
 				E8C3B22C2DA4C7200090687B /* Main.storyboard */,
 				E8C3B22F2DA4C7220090687B /* Assets.xcassets */,
 				E8C3B2312DA4C7220090687B /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8C3B22B2DA4C7200090687B /* ViewController.swift in Sources */,
+				E8C3B2572DA518F80090687B /* AssistiveTouch.swift in Sources */,
 				E8C3B2272DA4C7200090687B /* AppDelegate.swift in Sources */,
 				E8C3B2292DA4C7200090687B /* SceneDelegate.swift in Sources */,
 			);
