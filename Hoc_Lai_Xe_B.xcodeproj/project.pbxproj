@@ -18,6 +18,8 @@
 		E8C3B24A2DA4C7220090687B /* Hoc_Lai_Xe_BUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C3B2492DA4C7220090687B /* Hoc_Lai_Xe_BUITestsLaunchTests.swift */; };
 		E8C3B2572DA518F80090687B /* AssistiveTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C3B2562DA518F80090687B /* AssistiveTouch.swift */; };
 		E8C3B2592DA617180090687B /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C3B2582DA617180090687B /* ViewController1.swift */; };
+		E8C3B25C2DA61A3C0090687B /* WebView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C3B25B2DA61A3C0090687B /* WebView1.swift */; };
+		E8C3B25E2DA61A490090687B /* WebView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8C3B25D2DA61A490090687B /* WebView1.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		E8C3B2492DA4C7220090687B /* Hoc_Lai_Xe_BUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hoc_Lai_Xe_BUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E8C3B2562DA518F80090687B /* AssistiveTouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistiveTouch.swift; sourceTree = "<group>"; };
 		E8C3B2582DA617180090687B /* ViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController1.swift; sourceTree = "<group>"; };
+		E8C3B25B2DA61A3C0090687B /* WebView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView1.swift; sourceTree = "<group>"; };
+		E8C3B25D2DA61A490090687B /* WebView1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebView1.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		E8C3B2252DA4C7200090687B /* Hoc_Lai_Xe_B */ = {
 			isa = PBXGroup;
 			children = (
+				E8C3B25A2DA61A170090687B /* Views */,
 				E8C3B2262DA4C7200090687B /* AppDelegate.swift */,
 				E8C3B2282DA4C7200090687B /* SceneDelegate.swift */,
 				E8C3B22A2DA4C7200090687B /* ViewController.swift */,
@@ -131,6 +136,15 @@
 				E8C3B2492DA4C7220090687B /* Hoc_Lai_Xe_BUITestsLaunchTests.swift */,
 			);
 			path = Hoc_Lai_Xe_BUITests;
+			sourceTree = "<group>";
+		};
+		E8C3B25A2DA61A170090687B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E8C3B25B2DA61A3C0090687B /* WebView1.swift */,
+				E8C3B25D2DA61A490090687B /* WebView1.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +254,7 @@
 				E8C3B2332DA4C7220090687B /* LaunchScreen.storyboard in Resources */,
 				E8C3B2302DA4C7220090687B /* Assets.xcassets in Resources */,
 				E8C3B22E2DA4C7200090687B /* Main.storyboard in Resources */,
+				E8C3B25E2DA61A490090687B /* WebView1.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +282,7 @@
 				E8C3B22B2DA4C7200090687B /* ViewController.swift in Sources */,
 				E8C3B2592DA617180090687B /* ViewController1.swift in Sources */,
 				E8C3B2572DA518F80090687B /* AssistiveTouch.swift in Sources */,
+				E8C3B25C2DA61A3C0090687B /* WebView1.swift in Sources */,
 				E8C3B2272DA4C7200090687B /* AppDelegate.swift in Sources */,
 				E8C3B2292DA4C7200090687B /* SceneDelegate.swift in Sources */,
 			);

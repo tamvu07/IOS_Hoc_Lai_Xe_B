@@ -141,45 +141,49 @@
                                             <constraint firstAttribute="height" constant="1" id="wUQ-7w-xkK"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEf-uU-SMQ">
-                                        <rect key="frame" x="159" y="0.0" width="75" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="7hy-iv-faz"/>
-                                            <constraint firstAttribute="height" constant="35" id="AAe-6i-3Xa"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cR4-tD-y5L">
-                                        <rect key="frame" x="159" y="835" width="75" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="LPV-XH-12N"/>
-                                            <constraint firstAttribute="height" constant="35" id="s20-sz-6B4"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AuP-An-bbx">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="2556"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ay5-6z-EU0" customClass="WebView1" customModule="Hoc_Lai_Xe_B" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                                <color key="backgroundColor" systemColor="underPageBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r7g-UR-kNE">
+                                                <rect key="frame" x="0.0" y="852" width="393" height="852"/>
+                                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2EO-ve-oT2" customClass="WebView1" customModule="Hoc_Lai_Xe_B" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="1704" width="393" height="852"/>
+                                                <color key="backgroundColor" systemColor="tintColor"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="cR4-tD-y5L" secondAttribute="bottom" id="578-UJ-YSK"/>
-                                    <constraint firstItem="cR4-tD-y5L" firstAttribute="top" secondItem="oEf-uU-SMQ" secondAttribute="bottom" constant="800" id="MaJ-so-fvM"/>
+                                    <constraint firstItem="AuP-An-bbx" firstAttribute="leading" secondItem="1QW-kQ-5ud" secondAttribute="leading" id="AjJ-Sb-Iy2"/>
                                     <constraint firstItem="5cY-bK-x8M" firstAttribute="leading" secondItem="1QW-kQ-5ud" secondAttribute="leading" id="Oyn-dW-cfO"/>
                                     <constraint firstItem="5cY-bK-x8M" firstAttribute="top" secondItem="1QW-kQ-5ud" secondAttribute="top" id="PIH-og-LOZ"/>
-                                    <constraint firstItem="cR4-tD-y5L" firstAttribute="centerX" secondItem="1QW-kQ-5ud" secondAttribute="centerX" id="SgB-jN-WW9"/>
-                                    <constraint firstItem="oEf-uU-SMQ" firstAttribute="top" secondItem="1QW-kQ-5ud" secondAttribute="top" id="Yo5-TR-SKD"/>
-                                    <constraint firstItem="oEf-uU-SMQ" firstAttribute="centerX" secondItem="1QW-kQ-5ud" secondAttribute="centerX" id="bBS-bh-29W"/>
                                     <constraint firstAttribute="trailing" secondItem="5cY-bK-x8M" secondAttribute="trailing" id="bNI-0i-snQ"/>
+                                    <constraint firstItem="AuP-An-bbx" firstAttribute="top" secondItem="1QW-kQ-5ud" secondAttribute="top" id="mwX-8A-fQ3"/>
+                                    <constraint firstAttribute="trailing" secondItem="AuP-An-bbx" secondAttribute="trailing" id="oKK-ni-vDA"/>
+                                    <constraint firstAttribute="bottom" secondItem="AuP-An-bbx" secondAttribute="bottom" id="twC-lY-oY5"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PBD-4G-dK5"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1QW-kQ-5ud" firstAttribute="leading" secondItem="PBD-4G-dK5" secondAttribute="leading" id="0dr-tQ-fac"/>
+                            <constraint firstItem="2EO-ve-oT2" firstAttribute="width" secondItem="mlM-pg-SUM" secondAttribute="width" id="A4n-hk-bjR"/>
+                            <constraint firstItem="Ay5-6z-EU0" firstAttribute="width" secondItem="mlM-pg-SUM" secondAttribute="width" id="OZj-nk-xRF"/>
                             <constraint firstItem="PBD-4G-dK5" firstAttribute="trailing" secondItem="1QW-kQ-5ud" secondAttribute="trailing" id="Ru2-qo-nJA"/>
+                            <constraint firstItem="2EO-ve-oT2" firstAttribute="height" secondItem="mlM-pg-SUM" secondAttribute="height" id="TYi-Dj-wvS"/>
                             <constraint firstItem="1QW-kQ-5ud" firstAttribute="top" secondItem="PBD-4G-dK5" secondAttribute="top" id="U4r-lT-dMV"/>
+                            <constraint firstItem="Ay5-6z-EU0" firstAttribute="height" secondItem="mlM-pg-SUM" secondAttribute="height" id="VSX-uJ-yZW"/>
                             <constraint firstItem="PBD-4G-dK5" firstAttribute="bottom" secondItem="1QW-kQ-5ud" secondAttribute="bottom" id="bjW-en-vZ7"/>
                             <constraint firstItem="5cY-bK-x8M" firstAttribute="width" secondItem="mlM-pg-SUM" secondAttribute="width" id="c2W-0W-5L6"/>
+                            <constraint firstItem="r7g-UR-kNE" firstAttribute="width" secondItem="mlM-pg-SUM" secondAttribute="width" id="clQ-OC-l1J"/>
+                            <constraint firstItem="r7g-UR-kNE" firstAttribute="height" secondItem="mlM-pg-SUM" secondAttribute="height" id="gAP-9G-Wkb"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -194,6 +198,12 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="underPageBackgroundColor">
             <color red="0.70980392156862748" green="0.71764705882352942" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
