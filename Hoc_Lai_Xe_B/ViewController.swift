@@ -81,6 +81,11 @@ class ViewController: UIViewController, WKNavigationDelegate {
         textNumberTF.resignFirstResponder()
     }
     
+    @IBAction func goAction(_ sender: Any) {
+        gotoNewVC()
+    }
+    
+    
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         // Start the timer to click the element every 2 seconds
         //        startAutoClicking()
@@ -202,6 +207,16 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     @objc func goToView(sender: UIButton) {
         contentMainView.isHidden = false
+    }
+    
+    func gotoNewVC()
+    {
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        let destination = storyboard.instantiateViewController(withIdentifier: "ViewController1") as! ViewController1
+        let nav = UINavigationController(rootViewController: destination)
+        nav.setNavigationBarHidden(true, animated: true)
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: true)
     }
 }
 
