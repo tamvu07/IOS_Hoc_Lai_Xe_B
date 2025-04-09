@@ -5,19 +5,24 @@
 //  Created by Tam Vu on 09/04/2025.
 
 import UIKit
+import WebKit
 
 class WebView1: UIView {
 
+    @IBOutlet weak var webView1: WKWebView!
+    
     var contentView: UIView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup()
+        setUpUI()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         xibSetup()
+        setUpUI()
     }
     
     
@@ -46,6 +51,13 @@ class WebView1: UIView {
         return view
     }
     
+    func setUpUI() {
+//        webView1.navigationDelegate = self
+        if let url = URL(string: "https://tuanlong.huelms.com/user/login/?logout=1") {
+            let request = URLRequest(url: url)
+            webView1.load(request)
+        }
+    }
     
 }
 
