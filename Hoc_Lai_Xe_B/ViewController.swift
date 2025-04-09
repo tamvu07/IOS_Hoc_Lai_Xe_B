@@ -25,7 +25,14 @@ class ViewController: UIViewController {
     
     var timerPoint: Timer?
     var clickIndicator: UIView!
-    var arrayPoints: [PointObject] = [PointObject(x: 150, y: 150), PointObject(x: 150, y: 200), PointObject(x: 250, y: 0), PointObject(x: 150, y: 300), PointObject(x: 150, y: 350)]
+    var arrayPoints: [PointObject] = [PointObject(x: 100, y: 150),
+                                      PointObject(x: 100, y: 200),
+                                      PointObject(x: 100, y: 250),
+                                      PointObject(x: 100, y: 300),
+                                      PointObject(x: 100, y: 350),
+                                      PointObject(x: 100, y: 400),
+                                      PointObject(x: 100, y: 450),
+                                      PointObject(x: 100, y: 500)]
     var timerNext: Timer?
     var timerPrevious: Timer?
     var isNext: Bool = true
@@ -94,6 +101,13 @@ class ViewController: UIViewController {
         gotoNewVC()
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+            return .portrait
+        }
+
+        override var shouldAutorotate: Bool {
+            return true
+        }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         // Start the timer to click the element every 2 seconds
