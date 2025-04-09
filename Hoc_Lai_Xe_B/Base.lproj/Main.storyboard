@@ -46,11 +46,43 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Số câu:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mt1-fh-qur">
+                                        <rect key="frame" x="19.999999999999996" y="129" width="56.666666666666657" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbZ-W0-kwm">
+                                        <rect key="frame" x="96.666666666666671" y="129" width="41.333333333333329" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Câu hiện tại:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGi-57-hFU">
+                                        <rect key="frame" x="19.999999999999993" y="159.33333333333331" width="94.333333333333314" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HtW-Qe-YVS">
+                                        <rect key="frame" x="134.33333333333334" y="159.33333333333331" width="41.333333333333343" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xxd-eh-SNY">
                                         <rect key="frame" x="20" y="389" width="313" height="50"/>
                                         <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBm-tU-aca">
+                                                <rect key="frame" x="0.0" y="0.0" width="104.33333333333333" height="50"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Reset"/>
+                                                <connections>
+                                                    <action selector="resetAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J4u-T7-AzH"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQu-yL-h77">
-                                                <rect key="frame" x="0.0" y="0.0" width="156.66666666666666" height="50"/>
+                                                <rect key="frame" x="104.33333333333334" y="0.0" width="104.33333333333334" height="50"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Hidden"/>
                                                 <connections>
@@ -58,7 +90,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMg-qd-3iL">
-                                                <rect key="frame" x="156.66666666666663" y="0.0" width="156.33333333333337" height="50"/>
+                                                <rect key="frame" x="208.66666666666666" y="0.0" width="104.33333333333334" height="50"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Action"/>
                                                 <connections>
@@ -74,16 +106,24 @@
                                 <color key="backgroundColor" systemColor="underPageBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="xxd-eh-SNY" secondAttribute="trailing" constant="20" id="3NE-FL-1WQ"/>
+                                    <constraint firstItem="HtW-Qe-YVS" firstAttribute="leading" secondItem="nGi-57-hFU" secondAttribute="trailing" constant="20" id="74u-EJ-x0u"/>
+                                    <constraint firstItem="nGi-57-hFU" firstAttribute="top" secondItem="mt1-fh-qur" secondAttribute="bottom" constant="10" id="DSg-w8-NFz"/>
                                     <constraint firstItem="muw-ew-DHd" firstAttribute="top" secondItem="zcN-ZB-oFw" secondAttribute="bottom" constant="30" id="DXD-HH-KH5"/>
                                     <constraint firstItem="xxd-eh-SNY" firstAttribute="leading" secondItem="M1l-C5-WhH" secondAttribute="leading" constant="20" id="Gqf-Rf-MjG"/>
                                     <constraint firstAttribute="trailing" secondItem="muw-ew-DHd" secondAttribute="trailing" constant="20" id="Hm0-e4-VSN"/>
+                                    <constraint firstItem="nGi-57-hFU" firstAttribute="leading" secondItem="M1l-C5-WhH" secondAttribute="leading" constant="20" id="IHY-P7-73x"/>
                                     <constraint firstItem="muw-ew-DHd" firstAttribute="leading" secondItem="M1l-C5-WhH" secondAttribute="leading" constant="20" id="ZdV-0K-dvc"/>
                                     <constraint firstItem="zcN-ZB-oFw" firstAttribute="top" secondItem="M1l-C5-WhH" secondAttribute="top" constant="20" id="Zuu-tV-xFI"/>
                                     <constraint firstAttribute="bottom" secondItem="xxd-eh-SNY" secondAttribute="bottom" constant="20" id="eOs-U4-Xp2"/>
                                     <constraint firstItem="zcN-ZB-oFw" firstAttribute="centerX" secondItem="M1l-C5-WhH" secondAttribute="centerX" id="eoM-8p-uXZ"/>
+                                    <constraint firstItem="HtW-Qe-YVS" firstAttribute="top" secondItem="nGi-57-hFU" secondAttribute="top" id="fTT-2h-eEH"/>
+                                    <constraint firstItem="MbZ-W0-kwm" firstAttribute="leading" secondItem="mt1-fh-qur" secondAttribute="trailing" constant="20" id="igU-Iv-wxb"/>
+                                    <constraint firstItem="MbZ-W0-kwm" firstAttribute="top" secondItem="mt1-fh-qur" secondAttribute="top" id="qOK-4O-WMi"/>
+                                    <constraint firstItem="mt1-fh-qur" firstAttribute="top" secondItem="muw-ew-DHd" secondAttribute="bottom" constant="10" id="rNl-th-Wl1"/>
+                                    <constraint firstItem="mt1-fh-qur" firstAttribute="leading" secondItem="M1l-C5-WhH" secondAttribute="leading" constant="20" id="tCH-un-ZYA"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmC-BN-hKm">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmC-BN-hKm">
                                 <rect key="frame" x="159" y="683" width="75" height="35"/>
                                 <color key="backgroundColor" systemColor="systemCyanColor"/>
                                 <constraints>
@@ -114,6 +154,8 @@
                     </view>
                     <connections>
                         <outlet property="contentMainView" destination="M1l-C5-WhH" id="Wkb-cb-cpp"/>
+                        <outlet property="countDefaultLabel" destination="MbZ-W0-kwm" id="9cP-Ji-Jrj"/>
+                        <outlet property="countSelectLabel" destination="HtW-Qe-YVS" id="1d8-Qd-2ac"/>
                         <outlet property="selectBT" destination="zcN-ZB-oFw" id="6Cy-8U-107"/>
                         <outlet property="textNumberTF" destination="muw-ew-DHd" id="uGm-Pw-N2m"/>
                         <outlet property="webView1" destination="4WX-Rm-7zb" id="LzG-DW-9AT"/>

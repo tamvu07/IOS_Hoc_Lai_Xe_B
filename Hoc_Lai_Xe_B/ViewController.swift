@@ -14,13 +14,14 @@ struct PointObject {
     var y: Int = 0
 }
 
-class ViewController: UIViewController, WKNavigationDelegate {
+class ViewController: UIViewController {
     
     @IBOutlet weak var webView1: WKWebView!
     @IBOutlet weak var selectBT: UIButton!
     @IBOutlet weak var contentMainView: UIView!
     @IBOutlet weak var textNumberTF: UITextField!
-    //    var webView: WKWebView!
+    @IBOutlet weak var countDefaultLabel: UILabel!
+    @IBOutlet weak var countSelectLabel: UILabel!
     
     var timerPoint: Timer?
     var clickIndicator: UIView!
@@ -28,9 +29,9 @@ class ViewController: UIViewController, WKNavigationDelegate {
     var timerNext: Timer?
     var timerPrevious: Timer?
     var isNext: Bool = true
-    var countSelect: Int = 0
+    var countSelect: Int = 1
     var countDefaut: Int = 100
-    
+    //    var webView: WKWebView!
     
     @Published var isSelect: Bool = false
     
@@ -41,7 +42,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         // Initialize WKWebView
         //        webView = WKWebView(frame: self.view.frame)
-        webView1.navigationDelegate = self
+//        webView1.navigationDelegate = self
         //        self.view.addSubview(webView)
         
         contentMainView.isHidden = true
@@ -65,6 +66,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
             .store(in: &subscriptions)
         
         showBtn()
+        resetData()
     }
     
     @IBAction func btAction(_ sender: Any) {
@@ -76,10 +78,17 @@ class ViewController: UIViewController, WKNavigationDelegate {
     }
     
     @IBAction func doneAction(_ sender: Any) {
-        guard let value = Int(textNumberTF.text ?? "0") else { return }
+        guard let value = Int(textNumberTF.text ?? "0"), !((textNumberTF.text?.isEmpty) == nil) else { return }
         countDefaut = value
+        countDefaultLabel.text = "\(countDefaut)"
         textNumberTF.resignFirstResponder()
+        textNumberTF.text = ""
     }
+    
+    @IBAction func resetAction(_ sender: Any) {
+        resetData()
+    }
+    
     
     @IBAction func goAction(_ sender: Any) {
         gotoNewVC()
@@ -93,7 +102,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     func createClickIndicator() {
         clickIndicator = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        clickIndicator.backgroundColor = UIColor.red
+        clickIndicator.backgroundColor = UIColor.clear
         clickIndicator.layer.cornerRadius = 10
         self.view.addSubview(clickIndicator)
     }
@@ -119,6 +128,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
     @objc func autoNext() {
         nextAction(x: 340)
         countSelect += 1
+        countSelectLabel.text = "\(countSelect)"
         if countSelect == countDefaut {
             isSelect.toggle()
             DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
@@ -132,10 +142,11 @@ class ViewController: UIViewController, WKNavigationDelegate {
     @objc func autoPrevious() {
         nextAction(x: 25)
         countSelect -= 1
-        if countSelect == 0 {
+        countSelectLabel.text = "\(countSelect)"
+        if countSelect == 1 {
             isSelect.toggle()
             DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
-                self.countSelect = 0
+                self.countSelect = 1
                 self.isNext = true
                 self.isSelect.toggle()
             })
@@ -160,6 +171,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         var y = 640
         
         clickIndicator.center = CGPoint(x: x, y: y)
+        clickIndicator.backgroundColor = UIColor.green
         
         let js = "var evt = new MouseEvent('click', {clientX: \(x), clientY: \(y), bubbles: true}); document.elementFromPoint(\(x), \(y)).dispatchEvent(evt);"
         
@@ -217,6 +229,18 @@ class ViewController: UIViewController, WKNavigationDelegate {
         nav.setNavigationBarHidden(true, animated: true)
         nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: true)
+    }
+    
+    func resetData() {
+        isSelect = false
+        stopAutoClicking()
+        textNumberTF.text = ""
+        isNext = true
+        countSelect = 1
+        countDefaut = 100
+        countDefaultLabel.text = "\(countDefaut)"
+        countSelectLabel.text = "\(countSelect)"
+        clickIndicator.backgroundColor = UIColor.clear
     }
 }
 
