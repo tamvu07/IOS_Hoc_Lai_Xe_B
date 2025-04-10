@@ -29,14 +29,19 @@
                                 <rect key="frame" x="20" y="159" width="353" height="459"/>
                                 <subviews>
                                     <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcN-ZB-oFw">
-                                        <rect key="frame" x="139" y="20" width="75" height="35"/>
+                                        <rect key="frame" x="101.66666666666669" y="20" width="150" height="35"/>
                                         <color key="backgroundColor" red="0.20000001789999999" green="0.45098042490000001" blue="0.92156863209999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="UaE-F0-gUf"/>
-                                            <constraint firstAttribute="width" constant="75" id="wQd-4W-c1s"/>
+                                            <constraint firstAttribute="width" constant="150" id="wQd-4W-c1s"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Auto"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Auto Select"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="btAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oC1-3t-dLX"/>
                                         </connections>
@@ -92,7 +97,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMg-qd-3iL">
                                                 <rect key="frame" x="208.66666666666666" y="0.0" width="104.33333333333334" height="50"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Action"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
                                                 <connections>
                                                     <action selector="doneAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4CO-Vx-Lkc"/>
                                                 </connections>

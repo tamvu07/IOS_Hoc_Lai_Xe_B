@@ -8,6 +8,7 @@
 import UIKit
 import WebKit
 import Combine
+import AVFoundation
 
 struct PointObject {
     var x: Int = 0
@@ -23,7 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var countDefaultLabel: UILabel!
     @IBOutlet weak var countSelectLabel: UILabel!
     
-    var timerPoint: Timer?
+    
     var clickIndicator: UIView!
     var arrayPoints: [PointObject] = [PointObject(x: 100, y: 150),
                                       PointObject(x: 100, y: 200),
@@ -33,12 +34,18 @@ class ViewController: UIViewController {
                                       PointObject(x: 100, y: 400),
                                       PointObject(x: 100, y: 450),
                                       PointObject(x: 100, y: 500)]
+    var timerPoint: Timer?
     var timerNext: Timer?
     var timerPrevious: Timer?
+    var timerImages: Timer?
     var isNext: Bool = true
     var countSelect: Int = 1
     var countDefaut: Int = 100
     //    var webView: WKWebView!
+    var audioPlayer: AVAudioPlayer?
+    let images = ["ic_smartwatch_temp", "ic_smartwatch", "sos"]
+    var currentIndexImages = 0
+    var assistiveTouchImage: AssistiveTouch!
     
     @Published var isSelect: Bool = false
     
@@ -49,7 +56,7 @@ class ViewController: UIViewController {
         
         // Initialize WKWebView
         //        webView = WKWebView(frame: self.view.frame)
-//        webView1.navigationDelegate = self
+        //        webView1.navigationDelegate = self
         //        self.view.addSubview(webView)
         
         contentMainView.isHidden = true
@@ -66,6 +73,7 @@ class ViewController: UIViewController {
             .sink(receiveValue: { [weak self] result in
                 if result {
                     self?.startAutoClicking()
+                    self?.startImageChange()
                 } else {
                     self?.stopAutoClicking()
                 }
@@ -102,12 +110,12 @@ class ViewController: UIViewController {
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-            return .portrait
-        }
-
-        override var shouldAutorotate: Bool {
-            return true
-        }
+        return .portrait
+    }
+    
+    override var shouldAutorotate: Bool {
+        return true
+    }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         // Start the timer to click the element every 2 seconds
@@ -148,6 +156,7 @@ class ViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
                 self.countSelect = self.countDefaut
                 self.isNext = false
+                self.playWakeUpSound()
                 self.isSelect.toggle()
             })
         }
@@ -173,15 +182,15 @@ class ViewController: UIViewController {
         
         webView1.evaluateJavaScript(js) { (result, error) in
             if let error = error {
-                print("a3....Error number PointSelect: \(error)")
+                print("...Error number PointSelect: \(error)")
             } else {
-                print("a3....number PointSelect Click.")
+                print("....number PointSelect Click.")
             }
         }
     }
     
     func nextAction(x: Int) {
-//        var x = 340
+        //        var x = 340
         var y = 640
         
         clickIndicator.center = CGPoint(x: x, y: y)
@@ -191,9 +200,9 @@ class ViewController: UIViewController {
         
         webView1.evaluateJavaScript(js) { (result, error) in
             if let error = error {
-                print("a4....Error executing JavaScript: \(error)")
+                print("...Error executing JavaScript: \(error)")
             } else {
-                print("a4....Click simulated successfully........x is:\(x).......countSelect is:\(self.countSelect)......")
+                print("...Click simulated successfully........x is:\(x).......countSelect is:\(self.countSelect)......")
             }
         }
     }
@@ -216,20 +225,23 @@ class ViewController: UIViewController {
         timerPrevious?.invalidate()
         timerPrevious = nil
         
-       }
+        timerImages?.invalidate()
+        timerImages = nil
+        
+    }
     
-     func showBtn() {
-            DispatchQueue.main.async {
-                let assistiveTouch = AssistiveTouch(frame: CGRect(x: self.view.bounds.width - 66, y: 180, width: 56, height: 56))
-                assistiveTouch.addTarget(self, action: #selector(self.goToView(sender:)), for: .touchUpInside)
-                assistiveTouch.setImage(UIImage(named: "ic_smartwatch_temp"), for: .normal)
-                assistiveTouch.slectedAction = {
-                    
-                }
-                assistiveTouch.tag = 69240
-                self.view.addSubview(assistiveTouch)
+    func showBtn() {
+        DispatchQueue.main.async {
+            self.assistiveTouchImage = AssistiveTouch(frame: CGRect(x: self.view.bounds.width - 66, y: 180, width: 56, height: 56))
+            self.assistiveTouchImage.addTarget(self, action: #selector(self.goToView(sender:)), for: .touchUpInside)
+            self.assistiveTouchImage.setImage(UIImage(named: self.images[self.currentIndexImages]), for: .normal)
+            self.assistiveTouchImage.slectedAction = {
+                
             }
+            self.assistiveTouchImage.tag = 69240
+            self.view.addSubview(self.assistiveTouchImage)
         }
+    }
     
     @objc func goToView(sender: UIButton) {
         contentMainView.isHidden = false
@@ -255,6 +267,34 @@ class ViewController: UIViewController {
         countDefaultLabel.text = "\(countDefaut)"
         countSelectLabel.text = "\(countSelect)"
         clickIndicator.backgroundColor = UIColor.clear
+        audioPlayer?.stop()        
+        if let assistiveTouch = assistiveTouchImage {
+            assistiveTouch.setImage(UIImage(named: "sos"), for: .normal)
+        }
+    }
+    
+    func playWakeUpSound() {
+        // Make sure to have the sound file in your project
+        guard let url = Bundle.main.url(forResource: "sound_end", withExtension: "mp3") else { return }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        } catch {
+            print("Error playing sound: \(error.localizedDescription)")
+        }
+    }
+    
+    func startImageChange() {
+        timerImages = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
+    }
+    
+    @objc func changeImage() {
+        print("a3..... currentIndexImages + 1 is:\(currentIndexImages + 1)")
+        currentIndexImages = (currentIndexImages + 1) % images.count
+        print("a3..... currentIndexImages is:\(currentIndexImages)")
+        print("a3..................................................")
+        assistiveTouchImage.setImage(UIImage(named: images[currentIndexImages]), for: .normal) // Thay đổi hình ảnh
     }
 }
 

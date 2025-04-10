@@ -20,6 +20,8 @@
 		E8C3B2592DA617180090687B /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C3B2582DA617180090687B /* ViewController1.swift */; };
 		E8C3B25C2DA61A3C0090687B /* WebView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C3B25B2DA61A3C0090687B /* WebView1.swift */; };
 		E8C3B25E2DA61A490090687B /* WebView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8C3B25D2DA61A490090687B /* WebView1.xib */; };
+		E8C3B26C2DA786D10090687B /* setting_changed.wav in Resources */ = {isa = PBXBuildFile; fileRef = E8C3B26B2DA786D10090687B /* setting_changed.wav */; };
+		E8C3B2722DA7A7DD0090687B /* sound_end.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8C3B2712DA7A7DC0090687B /* sound_end.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		E8C3B2582DA617180090687B /* ViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController1.swift; sourceTree = "<group>"; };
 		E8C3B25B2DA61A3C0090687B /* WebView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView1.swift; sourceTree = "<group>"; };
 		E8C3B25D2DA61A490090687B /* WebView1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebView1.xib; sourceTree = "<group>"; };
+		E8C3B26B2DA786D10090687B /* setting_changed.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = setting_changed.wav; sourceTree = "<group>"; };
+		E8C3B2712DA7A7DC0090687B /* sound_end.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_end.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 		E8C3B21A2DA4C7200090687B = {
 			isa = PBXGroup;
 			children = (
+				E8C3B26B2DA786D10090687B /* setting_changed.wav */,
+				E8C3B2712DA7A7DC0090687B /* sound_end.mp3 */,
 				E8C3B2252DA4C7200090687B /* Hoc_Lai_Xe_B */,
 				E8C3B23C2DA4C7220090687B /* Hoc_Lai_Xe_BTests */,
 				E8C3B2462DA4C7220090687B /* Hoc_Lai_Xe_BUITests */,
@@ -254,6 +260,8 @@
 				E8C3B2332DA4C7220090687B /* LaunchScreen.storyboard in Resources */,
 				E8C3B2302DA4C7220090687B /* Assets.xcassets in Resources */,
 				E8C3B22E2DA4C7200090687B /* Main.storyboard in Resources */,
+				E8C3B26C2DA786D10090687B /* setting_changed.wav in Resources */,
+				E8C3B2722DA7A7DD0090687B /* sound_end.mp3 in Resources */,
 				E8C3B25E2DA61A490090687B /* WebView1.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
